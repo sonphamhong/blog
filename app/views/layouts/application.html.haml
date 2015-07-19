@@ -7,7 +7,7 @@
     = csrf_meta_tags
   %body
     = render "layouts/header"
-    .container
+    .container.wrapp_content
       - flash.each do |msg_type, msg|
         .alert{:class=> "alert-#{msg_type}"}
           = msg

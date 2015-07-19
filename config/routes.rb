@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   get 'users/new'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'users#new'
+  root 'home#index'
   get 'login' => "session#new"
   post 'login' => "session#create"
   delete 'logout'=> "session#destroy"

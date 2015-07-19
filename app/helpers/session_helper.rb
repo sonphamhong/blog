@@ -5,7 +5,6 @@ module SessionHelper
   end
 
   def current_user
-    binding.pry
     if user_id = session[:user_id]
       @current_user ||= User.find_by(id: user_id)  
     elsif user_id = cookies.signed[:user_id]
@@ -39,5 +38,7 @@ module SessionHelper
     cookies.delete(:remember_token)
   end
 
-
+  def current_user?(user)
+    user == current_user
+  end
 end

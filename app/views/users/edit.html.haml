@@ -1,8 +1,8 @@
 %h1
-  Sign_Up
+  Edit
 .row
   .col-md-6.col-md-offset-3
     = form_for(@user) do |f|
       = render 'users/fields', f: f
 
-      = f.submit "Create Account", class: "btn btn-primary"
+      = f.submit "Save Change", class: "btn btn-primary"
