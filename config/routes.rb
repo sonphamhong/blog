@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'password_reset/new'
+
+  post 'password_reset/edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       end
     end
 
-    def corrent_user
+    def correct_user
       user = User.find_by(id: params[:id])
       redirect_to root_url unless current_user?(user)
     end
