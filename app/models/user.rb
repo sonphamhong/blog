@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-
-  attr_accessor :remember_token
+  before_create :create_activation_digest
+  attr_accessor :remember_token, :activation_token 
 
   def self.new_token
     SecureRandom.urlsafe_base64
@@ -25,11 +25,18 @@ class User < ActiveRecord::Base
     self.update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  def authenticate?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticate?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def forget
     self.update_attribute(:remember_digest, nil)
+  end
+
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end

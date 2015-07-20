@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params_user)
     if @user.save
-      log_in @user
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
       redirect_to @user
     else
       # binding.pry
