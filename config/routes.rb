@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :posts
+  
+
   get 'password_reset/new'
 
   post 'password_reset/edit'

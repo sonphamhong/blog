@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   def new
     @user = User.new
@@ -38,13 +38,6 @@ class UsersController < ApplicationController
     def params_user
       params.require(:user).permit(:email, :name, :password, :password_confirm)
       
-    end
-
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
     end
 
     def correct_user

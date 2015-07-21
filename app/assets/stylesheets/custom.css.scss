@@ -1,3 +1,12 @@
+body {
+  font-family: "Pt serif","Georgia","Serif";
+  font-size: 19px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 32px;
+  color: #575756;
+}
+
+
 h1 {
   text-align: center;
 }
@@ -35,4 +44,15 @@ h1 {
 
 .wrapp_content {
   margin-top: 53px;
+}
+.content {
+  height: 500px !important;
+}
+
+.post_area {
+  border: 1px solid #C8C8C8;
+  border-radius: 5px;
+  margin: 20px;
+  height: 200px;
+  box-shadow: 5px 5px 5px #888888; 
 }

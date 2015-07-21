@@ -1,0 +1,14 @@
+.col-md-9
+  .row
+    = link_to 'New Post', new_post_path, class: "btn btn-success"
+  .container
+    - @posts.each do |post|
+      .col-md-4.post_area
+        .row
+          = post.title
+        .row
+          = link_to 'Show', post, class: "btn btn-success"
+          = link_to 'Edit', edit_post_path(post), class: "btn btn-success"
+          = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-success"
+
+

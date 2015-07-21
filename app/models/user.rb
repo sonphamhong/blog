@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   before_create :create_activation_digest
   attr_accessor :remember_token, :activation_token 
 
+
+  has_many :posts
+
+
   def self.new_token
     SecureRandom.urlsafe_base64
   end

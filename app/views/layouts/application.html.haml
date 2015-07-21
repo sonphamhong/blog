@@ -6,9 +6,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render "layouts/header"
+    = render "common/header"
     .container.wrapp_content
+      = render "common/sidebar_left"
       - flash.each do |msg_type, msg|
         .alert{:class=> "alert-#{msg_type}"}
           = msg
-      = yield
+      .col-md-6
+        = yield
+      = render "common/sidebar_right"
+    = render "common/footer"
