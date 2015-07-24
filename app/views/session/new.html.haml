@@ -2,23 +2,22 @@
   %h1
     = "Login"
 .row
-  .col-md-6.col-md-offset-3
-    = form_for(:session, url: login_path) do |f|
-      = f.label :emal
-      = f.email_field :email, class: "form-control"
+  = form_for(:session, url: login_path) do |f|
+    = f.label :emal
+    = f.email_field :email, class: "form-control"
 
-      = f.label :password
-      = f.password_field :password, class: "form-control"
+    = f.label :password
+    = f.password_field :password, class: "form-control"
 
-      = f.label :remember_me, class: "checkbox inline" do
-        = f.check_box :remember_me
-        %span 
-          = "Remember Me"
-      = f.submit "Login", class: "btn btn-primary"
+    = f.label :remember_me, class: "checkbox inline" do
+      = f.check_box :remember_me
+      %span 
+        = "Remember Me"
+    = f.submit "Login", class: "btn btn-primary"
 
-    %p
-      = "New User ?"
-      = link_to "Sign Up Now", signup_path
-    %p
-      = "Forget Password?"
-      = link_to "Reset Password", password_reset_new_path
+  %p
+    = "New User ?"
+    = link_to "Sign Up Now", signup_path
+  %p
+    = "Forget Password?"
+    = link_to "Reset Password", password_reset_new_path

@@ -7,12 +7,12 @@
     = csrf_meta_tags
   %body
     = render "common/header"
-    .container.wrapp_content
+    .wrapp_content
       = render "common/sidebar_left"
-      - flash.each do |msg_type, msg|
-        .alert{:class=> "alert-#{msg_type}"}
-          = msg
       .col-md-6
+        - flash.each do |msg_type, msg|
+          .alert{:class=> "alert-#{msg_type}"}
+            = msg
         = yield
       = render "common/sidebar_right"
     = render "common/footer"
