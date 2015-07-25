@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
-
+  has_many :likes
   def self.new_token
     SecureRandom.urlsafe_base64
   end
@@ -42,5 +42,9 @@ class User < ActiveRecord::Base
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  def like?(post)
+    likes.find_by(post_id: post.id)
   end
 end

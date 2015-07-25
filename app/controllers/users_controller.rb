@@ -34,6 +34,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:post_id])
+    current_user.likes.create(post_id: @post.id)
+  end
+
+  def unlike
+    @post = Post.find(params[:post_id])
+    like = current_user.likes.find_by(post_id: @post.id)
+    like.destroy
+  end
+
   private
     def params_user
       params.require(:user).permit(:email, :name, :password, :password_confirm)

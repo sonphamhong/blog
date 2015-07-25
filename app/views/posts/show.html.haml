@@ -6,6 +6,16 @@
 - if(is_owner?(@post))
   = link_to 'Edit', edit_post_path(@post)
   = link_to 'Back', posts_path
+.row
+  %span#count_likes
+    = pluralize(@post.likes.count, "Like")
+  %span#count_comments
+    = pluralize(@post.comments.count, "Comments")
+.row#vote
+  - unless current_user.like?(@post)
+    = render "shared/like_form"
+  - else
+    = render "shared/like_form"
 %hr
 %h2 Comments
 = render "comments/form", post: @post
