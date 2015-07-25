@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 
   has_many :posts
-
+  has_many :comments
 
   def self.new_token
     SecureRandom.urlsafe_base64
