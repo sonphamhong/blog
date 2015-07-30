@@ -1,2 +1,2 @@
-$("#count_likes").text("<%= pluralize(@post.likes.count, "Like") %>")
-$("#vote").html("<%= escape_javascript(render 'shared/unlike_form')%>")
+$(".box_<%= @post.id %> .count_likes").text("<%= pluralize(@post.likes.count, "Like") %>")
+$(".vote_<%= @post.id %>").html("<%= escape_javascript(render 'shared/unlike_form', post: @post)%>")

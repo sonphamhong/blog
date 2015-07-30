@@ -47,4 +47,14 @@ class User < ActiveRecord::Base
   def like?(post)
     likes.find_by(post_id: post.id)
   end
+
+  def like(post)
+    likes.create(post_id: post.id)
+    post.likes_count
+  end
+
+  def unlike(post)
+    likes.find_by(post: post.id).destroy
+    post.likes_count
+  end
 end

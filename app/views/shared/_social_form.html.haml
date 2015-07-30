@@ -1,0 +1,10 @@
+%div{class: "box_#{post.id}"}
+  %span.count_likes
+    = pluralize(post.likes.count, "Like")
+  %span.count_comments
+    = pluralize(post.comments.count, "Comments")
+%div{class: "vote_#{post.id}"}
+  - unless current_user.like?(post)
+    = render "shared/like_form", post: post
+  - else
+    = render "shared/unlike_form", post: post

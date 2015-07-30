@@ -4,6 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 32px;
   color: #575756;
+  background-color: #e9eaed;
 }
 
 
@@ -55,4 +56,21 @@ h1 {
   margin: 20px;
   height: 200px;
   box-shadow: 5px 5px 5px #888888; 
+}
+
+.post_form{
+  width: 100%;
+  border: 1px solid #C8C8C8;
+  border-radius: 5px;
+  margin-bottom: 20px;  
+  height: auto;
+  background-color: white;
+}
+
+.post_content {
+  padding: 30px;
+}
+
+.social_box {
+  margin-left: 30px;
 }
