@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
   has_many :likes
 
   def likes_count
-    self.update_attribute(:likes_count, likes.count)
+    # self.update_attribute(:likes_count, likes.count)
   end
 end

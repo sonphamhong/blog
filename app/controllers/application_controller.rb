@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless logged_in?
+      store_location(request.url)
       flash[:danger] = "Please log in."
       redirect_to login_url
     end
