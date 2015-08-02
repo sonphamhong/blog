@@ -1,14 +1,15 @@
-.row
+.col-xs-12.page
   %h1
     = @post.title
-.row
-  = @post.content
-- if(is_owner?(@post))
-  = link_to 'Edit', edit_post_path(@post)
-  = link_to 'Back', posts_path
-= render "shared/social_form", post: @post
-%hr
-%h2 Comments
-= render "comments/form", post: @post
-- @post.comments.each do |comment|
-  = render "comments/comment", comment: comment
+  .post_content
+    = simple_format(@post.content)
+  - if(is_owner?(@post))
+    = link_to 'Edit', edit_post_path(@post)
+    = link_to 'Back', posts_path
+  = render "shared/social_form", post: @post
+  %hr
+  %h2 Comments
+  = render "comments/form", post: @post
+  .comments_area
+    - @post.comments.each do |comment|
+      = render "comments/comment", comment: comment

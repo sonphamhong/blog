@@ -1,0 +1,17 @@
+.col-xs-6
+  .post_form
+    %a{:href => post_path(post.id)}
+      .article-image{:class => "background_#{i}"}
+        = "Post"
+    .article
+      %h3
+        %a{:href => post_path(post.id)}
+          = post.title
+      .post_content  
+        = post.content[0..99] + "..."
+      .row
+        .col-xs-6.text-right.col-xs-offset-6
+          = link_to "Read more", post_path(post.id)
+    .article_footer
+      .social_box
+        = render "shared/social_form", post: post

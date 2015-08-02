@@ -27,10 +27,4 @@ class SessionController < ApplicationController
     redirect_to root_url
   end
 
-  private
-    def logged_in_user
-      if logged_in?
-        redirect_to root_url
-      end
-    end
 end

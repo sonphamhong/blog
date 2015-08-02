@@ -1,11 +1,6 @@
 - if @posts.present?
-  - @posts.each do |post|
-    .post_form
-      .post_title
-        %h1
-          = post.title
-      .post_content  
-        = post.content
-      .social_box
-        = render "shared/social_form", post: post  
+  - @posts.each_with_index do |post, index|
+    - i= index % 12
+    = render "posts/post_form", post: post, i: i
+      
 
