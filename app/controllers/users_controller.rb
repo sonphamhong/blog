@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:edit, :update, :show]
   before_action :correct_user,   only: [:edit, :update]
   before_action :logged_in_user, only: [:new]
+  layout "account", only: [:show] 
   def new
     @user = User.new
   end
@@ -13,13 +14,13 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to @user
     else
-      # binding.pry
       render 'new'
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+
   end
 
   def edit

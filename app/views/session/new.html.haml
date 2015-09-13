@@ -1,23 +1,30 @@
 .row
   %h1
     = "Login"
-.row
+#form_login
   = form_for(:session, url: login_path) do |f|
-    = f.label :emal
-    = f.email_field :email, class: "form-control"
-
-    = f.label :password
-    = f.password_field :password, class: "form-control"
-
-    = f.label :remember_me, class: "checkbox inline" do
-      = f.check_box :remember_me
-      %span 
-        = "Remember Me"
-    = f.submit "Login", class: "btn btn-primary"
-
-  %p
-    = "New User ?"
-    = link_to "Sign Up Now", signup_path
-  %p
-    = "Forget Password?"
-    = link_to "Reset Password", password_reset_new_path
+    .col-xs-9
+      = f.label :emal
+    .col-xs-9
+      = f.email_field :email, class: "form-control"
+    .col-xs-9  
+      = f.label :password
+    .col-xs-9  
+      = f.password_field :password, class: "form-control"
+    .col-xs-9  
+      = f.label :remember_me, class: "checkbox inline" do
+        = f.check_box :remember_me
+        %span 
+          = "Remember Me"
+    .col-xs-9
+      = f.submit "Login", class: "btn btn-primary"
+  .row
+    .col-xs-9    
+      %p
+        = "New User ?"
+        = link_to "Sign Up Now", signup_path
+  .row
+    .col-xs-9
+      %p
+        = "Forget Password?"
+        = link_to "Reset Password", password_reset_new_path

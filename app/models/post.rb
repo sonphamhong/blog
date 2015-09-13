@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_many :likes
 
   def likes_count
-    # self.update_attribute(:likes_count, likes.count)
+    binding.pry
+    self.update_attribute(:likes_count, self.likes.count)
   end
 end

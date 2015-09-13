@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get 'signup' => "users#new"
   get 'like/:post_id' => 'users#like', as: "like"
   get 'unlike/:post_id' => 'users#unlike', as: "unlike"
-
+  get "user/profile" => "users#show", as: "profile"
 end

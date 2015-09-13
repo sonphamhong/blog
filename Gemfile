@@ -46,3 +46,4 @@ end
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'pry'
+gem "paperclip", "~> 4.3"

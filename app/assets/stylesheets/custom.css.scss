@@ -183,3 +183,35 @@ h3  a {
 .container {
   padding: 0px;
 }
+
+#profile_page {
+  background: #fff;
+}
+
+.side_bar_left, #sub_page {
+  border: 1px solid #c4cde0;
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 10px;
+  min-height: 600px;
+  margin: 20px;
+}
+
+.info {
+  float: left;
+  margin-left: 10px;
+}
+.avatar {
+  float: left;
+}
+
+#form_login {
+  width: 50%;
+  height: 350px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.row {
+  margin: 0px !important;
+  padding: 0px !important;
+}

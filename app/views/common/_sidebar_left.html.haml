@@ -1,3 +1,16 @@
-.col-md-3
-  %h1
-    sidebar left
+.col-md-4.side_bar_left
+  #profile
+    .avatar
+      = image_tag @user.avatar.url(:thumb) if @user.avatar.present?
+    .info
+      #username
+        = @user.name
+      #email
+        = @user.email
+  #menu
+    %a{:href => "#"}
+      .text
+        = "Account"
+    %a{:href=> "#"}
+      .text
+        = "Collecttions"
